@@ -1,43 +1,28 @@
-<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
-  <div class="login">
-    <div class="login-screen">
-      <div class="login-icon">
-        <img src="../../../assets/images/Bulb.png" alt="Welcome to One Sentence Startups" />
-        <h4>Welcome to <small>One Sentence Startup Pitches</small></h4>
-      </div>
-
-      <div class="login-form">
-        <div class="form-group">
-          <input type="email"
-            name="email"
-            id="login-name"
-            ng-model="loginForm.email"
-            required="required"
-            class="form-control login-field"
-            placeholder="Enter your name" />
-          <!-- <input type="text" class="form-control login-field" value="" placeholder="Enter your name" id="login-name" /> -->
-          <label class="login-field-icon fui-user" for="login-name"></label>
-        </div>
-
-        <div class="form-group">
-          <input type="password"
-                 name="password"
-                 id="login-password"
-                 ng-model="loginForm.password"
-                 required="required"
-                 class="form-control login-field"
-                 placeholder="Password"/>
-          <!-- <input type="password" class="form-control login-field" value="" placeholder="Password" id="login-pass" /> -->
-          <label class="login-field-icon fui-lock" for="login-pass"></label>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button>
-        <a class="login-link" href="">Lost your password?</a>
-      </div>
-
+<div class="login-container">
+  <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}" class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <div class="form-group">
+      <input type="email"
+        name="email"
+        id="login-name"
+        ng-model="loginForm.email"
+        required="required"
+        class="form-control login-field"
+        placeholder="Enter your name" />
     </div>
-  </div>
-</form>
+    <div class="form-group">
+      <input type="password"
+             name="password"
+             id="login-password"
+             ng-model="loginForm.password"
+             required="required"
+             class="form-control login-field"
+             placeholder="Password"/>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <a class="login-link" href="/register">Need to register?</a>
+  </form>
+</div>
 
 <div ng-repeat="error in errors" class="alert alert-danger" role="alert"
   ng-show="errors">
