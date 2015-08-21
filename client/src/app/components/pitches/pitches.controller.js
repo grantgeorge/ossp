@@ -92,7 +92,7 @@
           return false;
         }
 
-        if(!$rootScope.user.uid) {
+        if(!angular.isDefined($rootScope.user.uid)) {
           $scope.errors.push('You must be logged in to do that!');
           return false;
         }
@@ -118,7 +118,7 @@
           return false;
         }
 
-        if(!$rootScope.user.uid) {
+        if(!angular.isDefined($rootScope.user.uid)) {
           $scope.errors.push('You must be logged in to do that!');
           return false;
         }
@@ -138,7 +138,7 @@
       };
 
       $scope.clickSubmitPitch = function () {
-        if(!$rootScope.user.uid) {
+        if(!angular.isDefined($rootScope.user.uid)) {
           $scope.errors.push('You must be logged in to do that!');
         }
         else {
