@@ -56,7 +56,7 @@
 
         <div id="pitch-right">
           <div class="pitch-text">
-            <span>{{ pitch.text }}</span>
+            <span>{{ pitch.text | limitTo:250 }}</span>
           </div>
           <div class="pitch-detail">
             <p>
