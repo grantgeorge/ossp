@@ -22,12 +22,15 @@
         Pitches.save({ pitch: $scope.newPitch }, function (res) {
           console.log('success!');
           console.log(res);
+          $scope.newPitch = new Pitches();
+          $scope.submitPitch = false;
+          $scope.reloadPitches('latest');
         }, function (err) {
           console.log(err);
         });
       };
 
-      $scope.reloadPitches = function (sortPredicate, page) {
+      $scope.reloadPitches = function (sortPredicate) {
         Pitches.query({sort_by: sortPredicate},function (res) {
           $scope.pitches = res;
           console.log($scope.pitches);
