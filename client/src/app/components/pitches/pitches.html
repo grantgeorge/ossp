@@ -1,0 +1,97 @@
+<div class="container">
+
+  <div class="row">
+    <h2 style="text-align: center">One Sentence Startup Pitches</h2>
+    <div class="col-md-8 col-md-offset-2">
+
+      <button id="submit-button"
+        class="btn btn-hg btn-primary btn-block"
+        ng-click="clickSubmitPitch()"
+        ng-hide="submitPitch">
+        Submit a Pitch
+      </button>
+
+      <div ng-repeat="error in errors" class="alert alert-danger" role="alert"
+        ng-show="errors">
+        {{ error }}
+      </div>
+
+      <div ng-show="submitPitch">
+        <form class="form">
+          <div class="form-group">
+            <textarea id="submit-text-input" class="form-control"
+            placeholder="Type your One Sentence Startup Pitch here!" ng-model="newPitch.text"
+            rows="3">
+            </textarea>
+          </div>
+          <button id="pitch-create-button"
+            class="btn btn-hg btn-primary btn-block"
+            ng-click="createPitch()">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
+          {{ sortPredicate }}  <i class="fa fa-caret-down"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-inverse" role="menu">
+          <li ng-click="reloadPitches('latest')"><a href=""><i class="fa fa-calendar"></i> Latest</a></li>
+          <li ng-click="reloadPitches('rating')"><a href=""><i class="fa fa-thumbs-up"></i> Most Popular</a></li>
+          <!-- <li><a href=""><i class="fa fa-line-chart"></i> Most Active</a></li> -->
+        </ul>
+      </div>
+
+      <hr/>
+      <div class="pitch-wrapper" ng-repeat="pitch in pitches">
+
+        <div id="pitch-left" class="pitch-left">
+          <a class="vote-button" href=""><i ng-class="{ activated: upVoted(pitch) }"
+            class="fa fa-angle-up fa-2x" ng-click="upVote(pitch)"></i></a>
+          <span class="vote-count">{{ pitch.up_vote_count - pitch.down_vote_count }} </span>
+          <a class="vote-button" href=""><i ng-class="{ activated: downVoted(pitch) }"
+            class="fa fa-angle-down fa-2x" ng-click="downVote(pitch)"></i></a>
+        </div>
+
+        <div id="pitch-right">
+          <div class="pitch-text">
+            <span>{{ pitch.text }}</span>
+          </div>
+          <div class="pitch-detail">
+            <p>
+              <span><i class="fa fa-user"></i>  {{ pitch.user.nickname }}</span>
+              <span class="pull-right share-icons">
+
+                <a href="https://www.facebook.com/dialog/feed?
+                app_id=1022503347788627
+                &display=popup&caption={{ pitch.text }}
+                &link=https%3A%2F%2Fonesentencestartups.herokuapp.com
+                &redirect_uri=https%3A%2F%2Fonesentencestartups.herokuapp.com"><span class="fa-stack">
+
+                <!-- <a href="https://www.facebook.com/dialog/share?app_id=1022503347788627&display=popup&href=https%3A%2F%2Fonesentencestartups.herokuapp.com&redirect_uri=https%3A%2F%2Fonesentencestartups.herokuapp.com"><span class="fa-stack"> -->
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span></a>
+
+                <a href="https://twitter.com/intent/tweet?text={{ pitch.text }}&hashtags=startup,pitch&via=OneStartupPitch&url=https://www.facebook.com/groups/1500321840185061/"
+                  data-size="large"><span class="fa-stack">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span></a>
+              </span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <button class="btn btn-hg btn-block btn-primary" ng-click="loadMore()">
+    Load More
+  </button>
+
+</div>

@@ -1,0 +1,70 @@
+.pitch-wrapper {
+  background: #f8f8f8;
+  border: 1px #ccc solid;
+  margin: 0 2% 1em;
+  padding: 0.5em;
+  min-height: 120px;
+}
+
+.pitch-left {
+  width: 5.1ex;
+  float: left;
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.pitch-left i {
+  display: block;
+}
+
+.pitch-text {
+  min-height:70px;
+  font-size:20px;
+}
+
+.pitch-right {
+  min-height: 75px;
+}
+
+/* https://css-tricks.com/star-ratings/ */
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}
+
+.vote-count {
+  display: block;
+  color: #1abc9c;
+  margin-left: 6px;
+  font-size: 20px;
+}
+
+.pitch-detail {
+  margin-left: 45px;
+  color: #888;
+}
+
+.share-icons a {
+  color: #34495E;
+}
+
+.share-icons a:hover {
+  color: #1ABC9C;
+}
+
+.activated {
+  color: #1abc9c;
+}
+
+.vote-button {
+  color: #34495E;
+}
+
+#submit-button {
+  margin-bottom: 25px;
+}
+
+#pitch-create-button {
+  margin-bottom: 25px;
+}

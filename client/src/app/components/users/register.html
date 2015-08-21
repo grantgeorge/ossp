@@ -1,0 +1,54 @@
+<form ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
+  <div class="login">
+    <div class="login-screen">
+      <div class="login-icon">
+        <img src="../../../assets/images/Bulb.png" alt="Welcome to One Sentence Startups" />
+        <h4>Welcome to <small>One Sentence Startup Pitches</small></h4>
+      </div>
+
+      <div class="login-form">
+        <div class="form-group">
+          <input type="email"
+            name="email"
+            id="register-email"
+            ng-model="registrationForm.email"
+            required="required"
+            class="form-control login-field"
+            placeholder="Email">
+          <label class="login-field-icon fui-user" for="register-email"></label>
+        </div>
+
+        <div class="form-group">
+          <input type="text"
+                 name="nickname"
+                 id="register-nickname"
+                 ng-model="registrationForm.nickname"
+                 required="required"
+                 class="form-control login-field"
+                 placeholder="Username">
+          <label class="login-field-icon fui-user" for="register-nickname"></label>
+        </div>
+
+        <div class="form-group">
+          <input type="password"
+                 name="password"
+                 id="register-password"
+                 ng-model="registrationForm.password"
+                 required="required"
+                 class="form-control login-field"
+                 placeholder="Password"/>
+          <label class="login-field-icon fui-lock" for="login-pass"></label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        <a class="login-link" href="/login">Already registered?</a>
+      </div>
+
+    </div>
+  </div>
+</form>
+
+<div ng-repeat="error in errors" class="alert alert-danger" role="alert"
+  ng-show="errors">
+  {{ error }}
+</div>
